@@ -1,0 +1,15 @@
+def quick_sort(lista):                                        # Inicia a função do algoritmo Quick Sort[cite: 1]
+    if len(lista) <= 1:                                       # Se a lista tiver 0 ou 1 elemento, já está ordenada[cite: 1]
+        return lista                                          # Retorna a lista como base para encerrar a recursão[cite: 1]
+    
+    pivo = lista[-1]                                          # Elege o último elemento da lista como o pivô[cite: 1]
+    menores, iguais, maiores = [], [], []                     # Cria três listas vazias para separar os dados[cite: 1]
+
+    for elemento in lista:                                    # Percorre todos os itens da lista original[cite: 1]
+        if elemento < pivo:                                   # Verifica se o item atual é menor que o pivô[cite: 1]
+            menores.append(elemento)                          # Se sim, adiciona à lista de valores menores[cite: 1]
+        elif elemento == pivo:                                # Verifica se o item atual é idêntico ao pivô[cite: 1]
+            iguais.append(elemento)                           # Se sim, adiciona à lista de valores iguais[cite: 1]
+        else:                                                 # Caso não seja menor nem igual, é obrigatoriamente maior[cite: 1]
+            maiores.append(elemento)                          # Adiciona à lista de valores maiores[cite: 1]
+    return quick_sort(menores) + iguais + quick_sort(maiores) # Aplica recursão nas pontas e une o resultado em linha única[cite: 1]
